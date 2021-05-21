@@ -2,6 +2,8 @@ body {
     color: white;
     background: #63738a;
     font-family: 'Roboto', sans-serif;
+    align-items: center;
+    justify-content: center;
 }
 
 .mainContainer {
@@ -60,7 +62,7 @@ body {
     display: flex;
     margin-right: 15px;
     margin-bottom: 20px;
-    width: 100%;
+    width: 97%;
 }
 
 .signUpForm .row-fields div:last-child {
@@ -68,16 +70,16 @@ body {
 }
 
 .text-field {
-    display: flex;
+    /* display: flex; */
     flex-wrap:wrap;
     margin-left: 15px;
-    margin-right: 11px;
+    /* margin-right: 11px; */
 
     justify-content: space-around;
 }
 
 .text-field {
-    width: 90%;
+    width: 89%;
     padding: 10px;
     font-size: 1rem;
     background-color: #fff;
@@ -175,4 +177,11 @@ form {
 .hint-text {
     margin-left: 15px;
 }
+}
+
+error-output {
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
 }
