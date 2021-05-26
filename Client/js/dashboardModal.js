@@ -3,7 +3,7 @@ let modal = document.getElementById("addModal");
 let span = document.getElementsByClassName("close")[0];
 let addbtn = document.getElementById("add-button");
   
-  addbtn.onclick = function() {
+  addbtn.onclick = function(event) {
     modal.style.display = "block";
   }
 
@@ -22,8 +22,10 @@ let modal1 = document.getElementById("updateModal");
 let editbtn = document.getElementById("edit-button");
   
   editbtn.onclick = function() {
+    if (event.target == modal1) {
     modal1.style.display = "block";
   }
+}
 
   window.onclick = function(event) {
     if (event.target == modal1) {

@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       let fetch = document.querySelector('#card-contents').innerHTML;
       innerHtml = `
       <div class="card">
-      <p>Hello <b> ${personData.fname}&nbsp${personData.lname}</b></p>
+      <p>Hello <b> ${personData._firstname}&nbsp${personData._lastname}</b></p>
       <p><a id="edit-button" href="#updateModal"><img id="1" onclick="update(this)"  alt="delete" src="../images/logo/pencil-256.webp"></a> &nbsp&nbsp
       <img id="1"  onclick="remove(this)" alt="edit" src="../images/logo/dumpster-recycle-trash-container-bin-garbage-256.webp"></p>
       </div>` + fetch;
