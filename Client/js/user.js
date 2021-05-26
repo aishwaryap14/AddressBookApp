@@ -1,4 +1,4 @@
-class AddressBook {
+class User {
     //property
     fname;
     lname;
