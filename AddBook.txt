@@ -14,3 +14,54 @@ https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fsni
 body having default mRGIN OF 8px
 
 aishwarya@1122
+
+readymade package json command npm init -y
+
+9822003766 - jomy sir
+
+jsonwebtoken
+
+userid >> passed by frontend >>person.model.find
+
+
+'<div class="card card-outline-info" id="'+i+'Panel">
+<div class="card-block">
+<div class="card-title">
+<span>Card #'+i+'</span>
+<button type="button" class="close" data-target="#'+i+'Panel" data-dismiss="alert">
+<span class="float-right">
+<i class="fa fa-remove">
+</i></span></button>
+</div><p>Some text in '+i+' </p>
+<img src="//placehold.it/50/eeeeee" class="rounded rounded-circle">
+</div></div>
+
+
+------------------------------
+webpack- module bundle
+CRA- create react app 
+-- npm install -g create-react-app
+
+cdn- content delivery network/ either CLI
+
+npx- node package execute support only v- 10.16 above
+
+babble loader taking jsx file nd converts it to js for browser-
+
+there are two types of components class & function -- when dependacy is on states then use class
+when dependacy is not on state 
+class component also called wa statefull components
+function component = stateless
+
+
+class {
+constructor 
+event handler
+render 
+}
+
+render can return different returns depending on conditions called as conditional rendering
+
+history, memory and hash router
+https://www.geeksforgeeks.org/reactjs-types-of-routers/
+

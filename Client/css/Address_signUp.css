@@ -173,3 +173,7 @@ error-output {
     font-style: italic;
     color: red;
 }
+
+button {
+cursor: pointer;
+}

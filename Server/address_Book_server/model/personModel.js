@@ -3,27 +3,27 @@ const mongoose = require('mongoose');
 // person schema
 const person = mongoose.Schema(
     {
-        fname:{
+        _fname:{
             type:String,
             required: [true, "first name cannot be empty"]
         },
-        lname:{
+        _lname:{
             type:String,
             required: [true, "last name cannot be empty"]
         },
-        email:{
+        _email:{
             type:String,
             required: [true, "email cannot be empty"]
         },
-        city:{
+        _city:{
             type:String,
             required: [true, "city cannot be empty"]
         },
-        state:{
+        _state:{
             type:String,
             required: [true, "state cannot be empty"]
         },
-        zip:{
+        _zip:{
             type:String,
             required: [true, "zip code cannot be empty"]
         },
@@ -32,7 +32,7 @@ const person = mongoose.Schema(
             required: true,
             ref: 'users'
         },
-    },{ timeStamps: true}
+    },{ timestamps: true}
 )
 
 exports.person = mongoose.model("person", person);

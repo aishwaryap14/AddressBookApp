@@ -1,25 +1,30 @@
 class Person {
-    // firstname;
-    // lastname;
+    // id;
+    // fname;
+    // lname;
     // email;
     // address;
     // city;
     // zip;
     // state;
+    get id() {return this._id}
+    set id(id) {
+        this._id = email;
+    }
 
-    get firstname() {return this._firstname;}
-    set firstname(firstname) {
+    get fname() {return this._fname;}
+    set fname(fname) {
         let fnameRegex = RegExp('^[a-zA-Z\\s]{2,}$');
-        if (fnameRegex.test(firstname))
-        this._firstname = firstname;
+        if (fnameRegex.test(fname))
+        this._fname = fname;
         else throw 'First Name is Incorrect';
     }
 
-    get lastname() {return this._lastname;}
-    set lastname(lastname) {
+    get lname() {return this._lname;}
+    set lname(lname) {
         let lnameRegex = RegExp('^[a-zA-Z\\s]{2,}$');
-        if (lnameRegex.test(lastname))
-        this._lastname = lastname;
+        if (lnameRegex.test(lname))
+        this._lname = lname;
         else throw 'Last Name is Incorrect';
     }
 
@@ -52,7 +57,7 @@ class Person {
     }
 
     toString() {
-        return "firstname= " + this.firstname + ", lastname= " + this.lastname + ",email= " + this.email +
+        return "fname= " + this.fname + ", lname= " + this.lname + ",email= " + this.email +
         ",Address= " + this.address + ",City= " + this.city + ",zip= " + this.zip +
         ",state= " + this.state;
         }

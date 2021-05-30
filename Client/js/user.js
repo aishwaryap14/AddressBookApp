@@ -30,7 +30,10 @@ class User {
 
     get email() {return this._email}
     set email(email) {
+        // let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{3,}$');
+        // if (nameRegex.test(email))
         this._email = email;
+        // else throw 'Last Name is Incorrect';
     }
 
     get password1() {return this._password1}

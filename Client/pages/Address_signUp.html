@@ -18,12 +18,14 @@
         </div><!--headerContent-->
         <div></div>
         <div>
-          <form>
+          <form class="form" action="#" onsubmit="login(event)">
             <div class="form-fields">
-              <input type="email" class="text-field" name="email" placeholder="Email" required>
+              <input type="email" class="text-field" id="email" name="email" placeholder="Email" required>
+              <error-output class="email-error" for="email"></error-output>
             </div>
             <div class="form-fields">
-              <input type="text" class="text-field" name="password" placeholder="Password" required>
+              <input type="password" class="text-field" id="password" name="password" placeholder="Password" required>
+              <error-output class="pwd-error" for="password"></error-output>
             </div>
             <div class="form-fields">
               <button type="submit" class="signup-btn">Login</button>
@@ -37,6 +39,9 @@
     Don't have an account?
     <a href="../pages/Address_Register.html">Register</a>
   </div> 
-  <script src="../Server/Address_Book.js"></script>
+  <script src="../js/User.js"></script>
+  <script src="../js/Utility.js"></script>
+  <script src="../js/registerLoginListener.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

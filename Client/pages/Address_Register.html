@@ -21,28 +21,30 @@
             <form>
               <!-- <p class="hint-text">Create your account. It's free and only takes a minute.</p> -->
               <div class="row-fields">
-                <input type="text" class="text-field" name="first-name" placeholder="First Name" required>
-                <input type="text" class="text-field" name="last-name" placeholder="Last Name" required>
-                <!-- <error-output class="name-error" for="text"></error-output> -->
+                <input type="text" class="text-field" id= "firstname" name="first-name" placeholder="First Name" required>
+                <error-output class="fname-error" for="text"></error-output>
+                <input type="text" class="text-field" id= "lastname" name="last-name" placeholder="Last Name" required>
+                <error-output class="lname-error" for="text"></error-output>
               </div>
               <div class="form-fields">
                 <input type="email" class="text-field" name="email" placeholder="Email" required>
                 <error-output class="email-error" for="email"></error-output>
               </div>
               <div class="form-fields">
-                <input type="password" class="text-field" name="password" placeholder="Password" required>
+                <input type="password" class="text-field" id="pwd" name="password" placeholder="Password" required>
                 <error-output class="pwd-error" for="password"></error-output>
               </div>
               <div class="form-fields">
-                <input type="password" class="text-field" name="confirm-password" placeholder="Confirm Password" required>
-                <error-output class="conpwd-error" for="password"></error-output>
+                <input type="password" class="text-field" id="conPwd" name="confirm-password" placeholder="Confirm Password" required>
+                <error-output class="conpwd-error" id="confwd-err" for="password"></error-output>
               </div>
               <div class="form-fields">
                 <input type="text" class="text-field" name="address" placeholder="Address" required>
               </div>
               <div class="row-fields">
                 <input type="text" class="text-field" name="city" placeholder="City Name" required>
-                <input type="text" class="text-field" name="zip" placeholder="Zip Code" required>
+                <input type="text" class="text-field" id="zip" name="zip" placeholder="Zip Code" required>
+                <error-output class="zip-error" for="text"></error-output>
               </div>
               <div class="form-fields">
                 <select name="state" id="state" class="text-field"  placeholder="State" required>
@@ -87,7 +89,7 @@
               </div>
               <div class="form-fields">
                 <label class="tc-check">
-                  <input type="checkbox" required>
+                  <input type="checkbox" id="chkAgree" onclick="goFurther()" required>
                    I accept the 
                   <a href="#"> Terms of Use </a>
                    & 
@@ -95,7 +97,7 @@
                 </label>
               </div><!--TC accept checkbox-->
               <div class="form-fields">
-                <button type="submit" class="register-btn">Register Now</button>
+                <button type="submit"  class="register-btn">Register Now</button>
               </div>
             </form><!--Form-->
           </div>
@@ -107,7 +109,8 @@
       Already have an Account?
       <a href="../pages/Address_signUp.html"> Sign In</a>
     </div>
-  <script src="../js/Address_Book.js"></script>
-  <script src="../js/Address.js"></script>
+  <script src="../js/registerListener.js"></script>
+  <script src="../js/User.js"></script>
+  <script src="../Client/js/Utility.js"></script>
 </body>
 </html>

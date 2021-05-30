@@ -8,14 +8,15 @@ let addbtn = document.getElementById("add-button");
   }
 
   span.onclick = function() {
+    resetForm();
     modal.style.display = "none";
   }
 
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
 
 //Update Modal
 let modal1 = document.getElementById("updateModal");

@@ -34,7 +34,7 @@ const registration = mongoose.Schema(
             type:String,
             required: [true, "zip code cannot be empty"]
         },
-    },{ timeStamps: true}
+    },{ timestamps: true}
 )
 
 exports.registerUser = mongoose.model("Users", registration);

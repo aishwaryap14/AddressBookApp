@@ -39,7 +39,7 @@ exports.loginUser = (request, response) => {
             if (err) {
                 response.status(500).send({errors: err});
             } else {
-                response.status(200).send({message: "Successfully login", data:data});
+                response.status(200).send({data});
             }
         });
     }

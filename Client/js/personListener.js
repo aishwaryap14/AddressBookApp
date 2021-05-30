@@ -1,19 +1,20 @@
+let personData = {};
 window.addEventListener('DOMContentLoaded', (event) => {
-    const firstname = document.getElementById('firstname');
-    const lastname = document.getElementById('lastname');
+    const fname = document.getElementById('firstname');
+    const lname = document.getElementById('lastname');
     const fnameErr = document.querySelector('.fname-error');
     const lnameErr = document.querySelector('.lname-error');
     const email = document.querySelector('#email');
     const emailErr = document.querySelector('.email-error');
     const zip = document.querySelector('#zip');
     const zipErr = document.querySelector('.zip-error');
-    firstname.addEventListener('input', function() {
-        if(firstname.value.length == 0) {
+    fname.addEventListener('input', function() {
+        if(fname.value.length == 0) {
             fnameErr.textContent = "";
             return;
         }
         try{
-            (new Person()).firstname = firstname.value;
+            (new Person()).fname = fname.value;
             fnameErr.textContent = "";
         }catch (e)
         {
@@ -21,13 +22,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    lastname.addEventListener('input', function() {
-        if(lastname.value.length == 0) {
+    lname.addEventListener('input', function() {
+        if(lname.value.length == 0) {
             lnameErr.textContent = "";
             return;
         }
         try{
-            (new Person()).lastname = lastname.value;
+            (new Person()).lname = lname.value;
             lnameErr.textContent = "";
         }catch (e)
         {
@@ -67,6 +68,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const add = () => {
       try{
+        //   setPersonContactDetails();
           let personData = createPersonContact();
         //   dashboardModal.span.onclick();
           createAndUpdatePerson(personData);
@@ -79,35 +81,54 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const update = () => {
     try{
         let personData = createPersonContact();
-        createAndUpdatePerson(personData);
+        createAndUpdatePerson();
         resetForm();
     } catch (e) {
         return;
     }
 }
 
-  function createAndUpdatePerson(personData) {
-      let personContactList = JSON.parse(localStorage.getItem('PersonContactList'));
-      if (personContactList != undefined) {
-          personContactList.push(personData);
-      } else {
-          personContactList = [personData]
-      }
-      alert(personContactList.toString());
-      localStorage.setItem('PersonContactList', JSON.stringify(personContactList))
+// const setPersonContactDetails = () => {
+//     personData.fname = getInputValueById('#firstname');
+//     personData.lname = getInputValueById('#lastname');
+//     personData.email = getInputValueById('#email');
+//     personData.address = getInputValueById('#address');
+//     personData.city = getInputValueById('#city');
+//     personData.zip = getInputValueById('#zip');
+//     personData.state = getInputValueById('#state');
+// }
+
+  const createAndUpdatePerson = (personData)=> {
+    //   let personContactList = JSON.parse(localStorage.getItem('PersonContactList'));
+    makeServiceCall("POST", "http://localhost:3000/person/addContact", true, personData)
+    .then(responseText => {
+        console.log("Update response: ", responseText);
+        resetForm();
+        window.location.replace(site.dashboard_page);
+    })
+    .catch(error =>{
+        throw error;
+    });
+    //   if (personContactList.data != undefined) {
+    //       personContactList.data.push(personData);
+    //   } else {
+    //       personContactList.data = [personData]
+    //   }
+      alert(personContactList.data.toString());
+    //   localStorage.setItem('PersonContactList', JSON.stringify(personContactList))
   }
 
   const createPersonContact = () => {
       let personData = new Person();
       try{
-          personData.firstname = getInputValueById('#firstname');
+          personData.fname = getInputValueById('#firstname');
       } catch (e) {
         setTextValue('.fname-error', e);
         throw e;
       }
 
       try{
-          personData.lastname = getInputValueById('#lastname');
+          personData.lname = getInputValueById('#lastname');
       } catch (e) {
         setTextValue('.fname-error', e);
         throw e;
@@ -132,16 +153,37 @@ window.addEventListener('DOMContentLoaded', (event) => {
 }
 
 const resetForm = () => {
-    setValue('#firstname', '');
-    setValue('#lastname', '');
-    setValue('#email', '');
-    setValue('#address', '');
-    setValue('#city', '');
-    setValue('#zip', '');
-    setValue('#state', '');
+    setValue('#firstname', "");
+    setValue('#lastname', "");
+    setValue('#email', "");
+    setValue('#address', "");
+    setValue('#city', "");
+    setValue('#zip', "");
+    setValue('#state', "Select State");
 }
 
 const setValue = (id,value) => {
     const element = document.querySelector(id);
     element.textContent = value;
 }
+
+const remove = (node) => {
+    console.log("node id "+ node.id);
+    let personData = personContactList.data.find(personCont => personCont._id == node.id);
+    if (!personData) return;
+    const index = personContactList.data
+                    .map(personCont => personCont._id)
+                    .indexOf(personData._id);
+  
+    personContactList.data.splice(index, 1);
+    const deleteURL = "http://localhost:3000/person/deleteContact/" + personData._id.toString();
+    makeServiceCall("DELETE", deleteURL, false)
+        .then(responseText => {
+        console.log("delete response: ",responseText);
+        createInnerHtml();
+        })
+        .catch(error => {
+          console.log("DELETE Error status: "+ JSON.stringify(error));
+        });
+        window.location.replace(site.dashboard_page);
+  }

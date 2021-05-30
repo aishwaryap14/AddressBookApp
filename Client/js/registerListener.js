@@ -1,3 +1,5 @@
+let userContactObj = {};
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const firstname = document.getElementById('firstname');
     const lastname = document.getElementById('lastname');
@@ -74,3 +76,39 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
   });
+
+//   const  login = (event) => {
+//     event.preventDefault();
+//     event.stopPropagation();
+//     try {
+//         setUserContactsObject();
+//         registerOrLoginUser();
+//     } catch (e) {
+//         return;
+//     }
+//   }
+
+//   const setUserContactsObject =() => {
+//     userContactObj.firstname = getInputValueById('#email');
+//     userContactObj.firstname = getInputValueById('#password');
+//     }
+
+// const registerOrLoginUser = () => {
+//     // let postURL = site.server_url;
+//     let postURL = "http://localhost:3000/users/login";
+//     let methodCall = "POST";
+//     // if(isUpdate) {
+//     //     methodCall = "PUT";
+//     //     // postURL = postURL + employeePayrollObj.id.toString();
+//     //     postURL = "http://localhost:3002/update/" + employeePayrollObj._id.toString();
+//     // }
+//     makeServiceCall(methodCall, postURL, true, userContactObj)
+//     .then(responseText => {
+//         console.log("Update response: ", responseText);
+//         // resetForm();
+//         window.location.replace(site.dashboard_page);
+//     })
+//     .catch(error =>{
+//         throw error;
+//     });
+// }
