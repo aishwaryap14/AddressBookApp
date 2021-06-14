@@ -1,7 +1,8 @@
 const { request, response } = require("express");
 const personService = require("../services/personService");
-
+// console.log("Add person requ before : ", request);
 exports.addContact = (request, response) => {
+    console.log("Add person requ: ", request);
     console.log("Entered email =", request.body._email);
     request.checkBody("_fname","First name cannot be empty").notEmpty().isAlpha().len({min:2});
     request.checkBody("_lname","Last name cannot be empty").notEmpty().isAlpha().len({min:2});
@@ -19,7 +20,7 @@ exports.addContact = (request, response) => {
     else {
         personService.addPersonContact(request, (err, data) => {
             if (err) {
-                // console.log(response);
+                console.log(response);
                 response.status(500).send({errors: err});
             } else {
                 response.status(200).send({message: "Contact Added Successfully"});

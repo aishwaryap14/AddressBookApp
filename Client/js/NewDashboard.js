@@ -34,11 +34,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
       innerHtml = `
       <div class="card">
       <p>Hello <b> ${personData._fname}&nbsp${personData._lname}</b></p>
-      <p><a id="edit-button" href="#updateModal"><img id="${personData._id}" onclick="update(this)"  alt="delete" src="../images/logo/pencil-256.webp"></a> &nbsp&nbsp
-      <img id="${personData._id}"  onclick="remove(this)" alt="edit" src="../images/logo/dumpster-recycle-trash-container-bin-garbage-256.webp"></p>
+      <div ><a id="${personData._id}" onclick="update(this)" data-toggle="modal" data-target="updateModal" name="edit-button" href="#updateModal">
+      Update</a> &nbsp&nbsp
+      <img id="${personData._id}"  onclick="remove(this)" alt="delete" src="../images/logo/dumpster-recycle-trash-container-bin-garbage-256.webp"></div>
       </div>` + fetch;
       document.querySelector('#card-contents').innerHTML = innerHtml;
     }
-  
+    // <img id="${personData._id}"  alt="edit" src="../images/logo/pencil-256.webp">
 }
 
+
+let modal1 = document.getElementById("updateModal");
+let editbtn = document.getElementsByName("edit-button");
+
+  editbtn.onclick = function() {
+    // if (event.target == modal1) {
+    modal1.style.display = "block";
+  // }
+}
+// window.onclick = function() {
+//   // if (event.target == modal1) {
+//     modal1.style.display = "block";
+//   // }
+// }

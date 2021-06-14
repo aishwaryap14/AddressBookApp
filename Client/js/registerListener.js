@@ -1,4 +1,4 @@
-let userContactObj = {};
+let registrationData = {};
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const firstname = document.getElementById('firstname');
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     password2.addEventListener('input', function() {
-        if(password2.value.length == 0) {
+        if(password2.value.length == 0 || password1.value === password2.value) {
             passErr.textContent = "";
             return;
         }
@@ -77,38 +77,78 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   });
 
-//   const  login = (event) => {
-//     event.preventDefault();
-//     event.stopPropagation();
-//     try {
-//         setUserContactsObject();
-//         registerOrLoginUser();
-//     } catch (e) {
-//         return;
-//     }
-//   }
+  const  register = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+        let registrationData = setUserContactsObject();
+        registerUser(registrationData);
+    } catch (e) {
+        return;
+    }
+  }
 
-//   const setUserContactsObject =() => {
-//     userContactObj.firstname = getInputValueById('#email');
-//     userContactObj.firstname = getInputValueById('#password');
-//     }
+  const setUserContactsObject =() => {
+    let registrationData = new User();
+    try{
+        registrationData.firstname = getInputValueById('#firstname');
+    } catch (e) {
+      setTextValue('.fname-error', e);
+      throw e;
+    }
 
-// const registerOrLoginUser = () => {
-//     // let postURL = site.server_url;
-//     let postURL = "http://localhost:3000/users/login";
-//     let methodCall = "POST";
-//     // if(isUpdate) {
-//     //     methodCall = "PUT";
-//     //     // postURL = postURL + employeePayrollObj.id.toString();
-//     //     postURL = "http://localhost:3002/update/" + employeePayrollObj._id.toString();
-//     // }
-//     makeServiceCall(methodCall, postURL, true, userContactObj)
-//     .then(responseText => {
-//         console.log("Update response: ", responseText);
-//         // resetForm();
-//         window.location.replace(site.dashboard_page);
-//     })
-//     .catch(error =>{
-//         throw error;
-//     });
-// }
+    try{
+        registrationData.lastname = getInputValueById('#lastname');
+    } catch (e) {
+      setTextValue('.fname-error', e);
+      throw e;
+    }
+
+    try{
+        registrationData.email = getInputValueById('#email');
+    } catch (e) {
+      setTextValue('.fname-error', e);
+      throw e;
+    }
+    // userContactObj.firstname = getInputValueById('#firstname');
+    // userContactObj.lastname = getInputValueById('#lastname');
+    // userContactObj.email = getInputValueById('#email');
+    registrationData.pwd = getInputValueById('#pwd')
+    // userContactObj.password2 = getInputValueById('#conPwd');
+    registrationData.address = getInputValueById('#address');
+    registrationData.city = getInputValueById('#city');
+    registrationData.zip = getInputValueById('#zip');
+    registrationData.state = getInputValueById('#state');
+    alert(registrationData.toString());
+    return registrationData;
+    }
+
+const registerUser = (registrationData) => {
+    // let postURL = site.server_url;
+    // let postURL = "http://localhost:3000/users/register";
+    // let methodCall = "POST";
+    // if(isUpdate) {
+    //     methodCall = "PUT";
+    //     // postURL = postURL + employeePayrollObj.id.toString();
+    //     postURL = "http://localhost:3002/update/" + employeePayrollObj._id.toString();
+    // }
+    makeServiceCall("POST", "http://localhost:3000/users/register", true, registrationData)
+    .then(responseText => {
+        console.log("Update response: ", responseText);
+        // resetForm();
+        window.location.replace(site.login_page);
+    })
+    .catch(error =>{
+        throw error;
+    });
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
+
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}

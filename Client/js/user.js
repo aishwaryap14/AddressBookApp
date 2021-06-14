@@ -36,9 +36,9 @@ class User {
         // else throw 'Last Name is Incorrect';
     }
 
-    get password1() {return this._password1}
-    set password1(password1) {
-        this._password1 = password1;
+    get pwd() {return this._pwd}
+    set pwd(pwd) {
+        this._pwd = pwd;
     }
 
     get password2() {return this._password2}

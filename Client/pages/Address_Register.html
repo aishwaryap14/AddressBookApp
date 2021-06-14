@@ -18,7 +18,7 @@
           </div><!--header container-->
           <div>
             <p class="hint-text">Create your account. It's free and only takes a minute.</p>
-            <form>
+            <form class="form" action="#" onsubmit="register(event)">
               <!-- <p class="hint-text">Create your account. It's free and only takes a minute.</p> -->
               <div class="row-fields">
                 <input type="text" class="text-field" id= "firstname" name="first-name" placeholder="First Name" required>
@@ -27,7 +27,7 @@
                 <error-output class="lname-error" for="text"></error-output>
               </div>
               <div class="form-fields">
-                <input type="email" class="text-field" name="email" placeholder="Email" required>
+                <input type="email" class="text-field" name="email" id="email" placeholder="Email" required>
                 <error-output class="email-error" for="email"></error-output>
               </div>
               <div class="form-fields">
@@ -39,10 +39,10 @@
                 <error-output class="conpwd-error" id="confwd-err" for="password"></error-output>
               </div>
               <div class="form-fields">
-                <input type="text" class="text-field" name="address" placeholder="Address" required>
+                <input type="text" class="text-field" name="address" id="address" placeholder="Address" required>
               </div>
               <div class="row-fields">
-                <input type="text" class="text-field" name="city" placeholder="City Name" required>
+                <input type="text" class="text-field" name="city" id="city" placeholder="City Name" required>
                 <input type="text" class="text-field" id="zip" name="zip" placeholder="Zip Code" required>
                 <error-output class="zip-error" for="text"></error-output>
               </div>
@@ -107,10 +107,11 @@
     </div><!--main container-->
     <div class="sign-up-center-text">
       Already have an Account?
-      <a href="../pages/Address_signUp.html"> Sign In</a>
+      <a href="../pages/Address_Login.html"> Sign In</a>
     </div>
   <script src="../js/registerListener.js"></script>
   <script src="../js/User.js"></script>
-  <script src="../Client/js/Utility.js"></script>
+  <script src="../js/Utility.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

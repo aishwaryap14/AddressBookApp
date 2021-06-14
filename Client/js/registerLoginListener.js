@@ -55,8 +55,8 @@ const login = (event) => {
   }
 
   const setUserContactsObject =() => {
-    userContactObj.email = getInputValueById('#email');
-    userContactObj.pwd = getInputValueById('#password');
+    userContactObj._email = getInputValueById('#email');
+    userContactObj._pwd = getInputValueById('#password');
     }
 
 const registerOrLoginUser = () => {

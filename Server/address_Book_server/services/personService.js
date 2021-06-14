@@ -9,7 +9,7 @@ exports.addPersonContact = (request, callback) => {
         console.log("Entered email service1 =", request.body._email);
         // emailExistence.check(request.body.email, (err, result) => {
         //     if(result) {
-                model.person.findOne({ "_email": request.body._email}, (err, user) => {
+                model.person.findOne({ "email": request.body._email}, (err, user) => {
                     
                     if (user)
                     callback("Contact already exist");

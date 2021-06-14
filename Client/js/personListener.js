@@ -78,25 +78,55 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
   }
 
-  const update = () => {
+  const update = (node) => {
     try{
-        let personData = createPersonContact();
-        createAndUpdatePerson();
+        console.log("person data ", personContactList.data._id)
+        console.log("node id "+ node.id);
+        let personData = personContactList.data.find(personCont => personCont._id == node.id);
+        // setPersonContactDetails(personData);
+        setModal(personData);
+        setPersonContactDetails();
+        // personData = createPersonContact();
+        console.log("person data ", personData);
+        // createAndUpdatePerson(personData);
         resetForm();
     } catch (e) {
         return;
     }
 }
 
-// const setPersonContactDetails = () => {
-//     personData.fname = getInputValueById('#firstname');
-//     personData.lname = getInputValueById('#lastname');
-//     personData.email = getInputValueById('#email');
-//     personData.address = getInputValueById('#address');
-//     personData.city = getInputValueById('#city');
-//     personData.zip = getInputValueById('#zip');
-//     personData.state = getInputValueById('#state');
-// }
+const setModal = (personData) => {
+    setValue('#firstname', personData._fname); 
+    setValue('#lastname', personData._lname); 
+    setValue('#email', personData._email); 
+    setValue('#address', personData._address); 
+    setValue('#city', personData._city); 
+    setValue('#zip', personData._zip); 
+    setValue('#state', personData._state); 
+    
+}
+
+const setPersonContactDetails = (personData) => {
+    let person = new Person();
+
+    try {
+        person._fname = getInputValueById('#firstname');
+    } catch (e) {
+        setTextValue('.fname-error', e);
+        throw e;
+    }
+    try {
+        person._lname = getInputValueById('#lastname');
+    } catch (e) {
+        setTextValue('.lname-error', e);
+        throw e;
+    }
+    person._email = getInputValueById('#email');
+    person._address = getInputValueById('#address');
+    person._city = getInputValueById('#city');
+    person._zip = getInputValueById('#zip');
+    person._state = getInputValueById('#state');
+}
 
   const createAndUpdatePerson = (personData)=> {
     //   let personContactList = JSON.parse(localStorage.getItem('PersonContactList'));
@@ -117,6 +147,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
       alert(personContactList.data.toString());
     //   localStorage.setItem('PersonContactList', JSON.stringify(personContactList))
   }
+
+
+  const updatePersonAddress = (personData) => {
+      console.log(personData);
+  }
+
 
   const createPersonContact = () => {
       let personData = new Person();

@@ -320,3 +320,8 @@ img {
 height: 90%;
 width: 10%;
 }
+
+.buttonalign {
+  display: flex;
+  justify-content: space-evenly;
+}

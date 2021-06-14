@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="stylesheet" href="../css/Address_Dash.css">
+  <!-- <link rel="stylesheet" href="../css/Address_Dash.css"> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
 </head>
-
 <body class="dashboarad-module">
   <!-- <div id="overlay" onclick="off()"></div> -->
   <header class="header">
     <div class="topnav" id="myTopnav">
       <a href="#signUp">Sign Up</a>
-      <a href="../pages/Address_Login.html">Logout</a>
+      <a href="../pages/Address_signUp.html">Logout</a>
       <a href="#home" class="active">Home</a>
     </div>
   </header>
-
+  
   <div class="menu">
     <div id="mySidenav" class="sidenav">
-      <!-- <a href="#updateModal" ><img class="cont-img" src="../images/logo/list2.png">List</a> -->
+      <a href="#"><img class="cont-img" src="../images/logo/list2.png">List</a>
       <a id="add-button" href="#addModal"><img class="cont-img" src="../images/logo/add3.png">Add</a>
-      <a id="edit-button" href="#updateModal"><img class="cont-img" src="../images/logo/edit4.png">Edit</a>
+      <a id="edit-button" href="#updateModal" ><img class="cont-img" src="../images/logo/edit4.png">Edit</a>
       <a href="#"><img class="cont-img" src="../images/logo/delete2.png">Delete</a>
     </div>
   </div>
   <!-- card container -->
-  <div class="main">
+  <div class="main" >
     <div class="row">
       <div class="column">
-        <div id="card-contents" style="display:flex;
+        <div  id="card-contents" style="display:flex;
         flex-direction:row;flex-wrap:wrap;"></div>
         <!-- cards -->
-
+        
       </div>
     </div>
-  </div>
-  <!--Main-->
+  </div> <!--Main-->
   <div class="modal-fade" id="addModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- add modal -->
-        <link rel="stylesheet" href="../css/addEditDelete.css">
+        <link rel="stylesheet" href="../css/Address_Dash.css">
         <div class="signupCard">
           <div class="signUpForm">
             <div class="headerContent">
@@ -51,14 +48,12 @@
               <h1>Add</h1>
               <span id="blackline"></span>
               <span class="close" onreset="resetForm()">&times;</span>
-            </div>
-            <!--headerContent-->
-            <div></div>
+            </div><!--headerContent-->
+          <div></div>
             <div>
               <form onsubmit="add(event);return false">
                 <div class="row-fields">
-                  <input type="text" class="text-field" id="firstname" name="first-name" placeholder="First Name"
-                    required>
+                  <input type="text" class="text-field" id="firstname" name="first-name" placeholder="First Name" required>
                   <error-output class="fname-error" for="text"></error-output>
                   <input type="text" class="text-field" id="lastname" name="last-name" placeholder="Last Name" required>
                   <error-output class="lname-error" for="text"></error-output>
@@ -71,12 +66,12 @@
                   <input type="text" class="text-field" id="address" name="address" placeholder="Address" required>
                 </div>
                 <div class="row-fields">
-                  <input type="text" class="text-field" id="city" name="city" placeholder="City Name" required>
+                  <input type="text" class="text-field" id="city"  name="city" placeholder="City Name" required>
                   <input type="text" class="text-field" id="zip" name="zip" placeholder="Zip Code" required>
                   <error-output class="zip-error" for="text"></error-output>
                 </div>
                 <div class="form-fields">
-                  <select name="state" id="state" class="text-field" placeholder="State" required>
+                  <select name="state" id="state" class="text-field"  placeholder="State" required>
                     <option value="Select State">Select State</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -114,7 +109,7 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-                  </select>
+                    </select>
                 </div>
                 <div class="form-fields">
                   <button type="submit" class="register-btn">Add</button>
@@ -125,16 +120,13 @@
         </div>
       </div>
     </div>
-    <script src="../js/Person.js"></script>
+    <script src="../js/Person.js"  ></script>
     <script src="../js/personListener.js"></script>
-  </div>
-  <!--Add modal end-->
+  </div><!--Add modal end-->
 
-  <div class="modal-fade" id="updateModal" role="dialog">
-    <!--Update Modal-->
+  <div class="modal-fade" id="updateModal" role="dialog"><!--Update Modal-->
     <div class="modal-dialog">
       <div class="modal-content">
-        <!-- <link rel="stylesheet" href="../css/Address_Dash.css"> -->
         <link rel="stylesheet" href="../css/addEditDelete.css">
         <div class="signupCard">
           <div class="signUpForm">
@@ -142,27 +134,23 @@
               <span id="blackline"></span>
               <h1>Edit</h1>
               <span id="blackline"></span>
-            </div>
-            <!--headerContent-->
-            <div></div>
+            </div><!--headerContent-->
+          <div></div>
             <div>
               <form onsubmit="update(event);return false">
                 <!-- <form> -->
                 <div class="row-fields">
-                  <input type="text" class="text-field" id="firstname" name="first-name" placeholder="First Name"
-                    required>
+                  <input type="text" class="text-field"  id="firstname" name="first-name" placeholder="First Name" required>
                   <error-output class="fname-error" for="text"></error-output>
-                  <input type="text" class="text-field" id="lastname" name="last-name" placeholder="Last Name" required>
+                  <input type="text" class="text-field"  id="lastname" name="last-name" placeholder="Last Name" required>
                   <error-output class="lname-error" for="text"></error-output>
                 </div>
                 <div class="form-fields">
                   <input type="email" class="text-field" id="email" name="email" placeholder="Email" required>
-                  <p>
-                    <error-output class="email-error" for="text"></error-output>
-                  </p>
+                  <p><error-output class="email-error" for="text"></error-output></p>
                 </div>
                 <div class="form-fields">
-                  <input type="text" class="text-field" id="address" name="address" placeholder="Address" required>
+                  <input type="text" class="text-field"  id="address" name="address" placeholder="Address" required>
                 </div>
                 <div class="row-fields">
                   <input type="text" class="text-field" id="city" name="city" placeholder="City Name" required>
@@ -170,7 +158,7 @@
                   <error-output class="zip-error" for="text"></error-output>
                 </div>
                 <div class="form-fields">
-                  <select name="state" id="state" class="text-field" placeholder="State" required>
+                  <select name="state" id="state" class="text-field"  placeholder="State" required>
                     <option value="">Select State</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -208,7 +196,7 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-                  </select>
+                    </select>
                 </div>
                 <div class="form-fields">
                   <button type="submit" class="register-btn">Update</button>
@@ -219,11 +207,24 @@
         </div>
       </div>
     </div>
+    <script >
+      let modal1 = document.getElementById("updateModal");
+      let editbtn = document.getElementById("edit-button");
 
+      editbtn.onclick = function(event) {
+        // if (event.target == modal1) {
+        modal1.style.display = "block";
+      // }
+    }
+    window.onclick = function(event) {
+      // if (event.target == modal1) {
+        modal1.style.display = "none";
+      // }
+    }
+    </script>
     <script src="../js/Person.js"></script>
     <script src="../js/personListener.js"></script>
-  </div>
-  <!--Update Modal end-->
+  </div><!--Update Modal end-->
 
   <script src="../js/dashboardModal.js"></script>
   <script src="../js/NewDashboard.js"></script>
@@ -231,9 +232,6 @@
   <script src="../js/site.js"></script>
   <script src="../js/User.js"></script>
   <script src="../js/Person.js"></script>
-  <script src="../js/personListener.js"></script>
-
-
+  
 </body>
-
 </html>

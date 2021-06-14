@@ -9,24 +9,24 @@ const { request, response } = require("express");
 exports.userRegistration = (request, callback) => {
     try{
         let response = {};
-        console.log("Entered email =", request.body.email);
+        console.log("Entered email =", request.body._email);
         // emailExistence.check(request.body.email, (err, result) => {
         //     if(result) {
-                model.registerUser.findOne({ "email": request.body.email}, (err, user) => {
+                model.registerUser.findOne({ "_email": request.body._email}, (err, user) => {
                     if (user)
                     callback("email already exist");
                     else {
                         let userDetails;
-                        bycrypt.hash(request.body.pwd, 10, (err, encrypted) => {
+                        bycrypt.hash(request.body._pwd, 10, (err, encrypted) => {
                             userDetails = new model.registerUser({
-                                "fname": request.body.fname,
-                                "lname": request.body.lname,
-                                "email": request.body.email,
-                                "pwd": encrypted,
-                                "address": request.body.address,
-                                "city": request.body.city,
-                                "zip": request.body.zip,
-                                "state": request.body.state
+                                "_firstname": request.body._firstname,
+                                "_lastname": request.body._lastname,
+                                "_email": request.body._email,
+                                "_pwd": encrypted,
+                                "_address": request.body._address,
+                                "_city": request.body._city,
+                                "_zip": request.body._zip,
+                                "_state": request.body._state
                             })
                             userDetails.save()
                                 .then(user => {
@@ -49,22 +49,22 @@ exports.userRegistration = (request, callback) => {
 
 exports.userLogin = (request, callback) => {
     let response = {};
-    model.registerUser.findOne({email: request.body.email}, (err,user) => {
+    model.registerUser.findOne({_email: request.body._email}, (err,user) => {
         if (user) {
-            bycrypt.compare(request.body.pwd, user.pwd, (err,encrypted) => {
+            bycrypt.compare(request.body._pwd, user._pwd, (err,encrypted) => {
                 if(!encrypted)  {
                     callback("Password not matched");
                 } else {
                     const token = jwt.sign ({
-                        email: request.body.email,
+                        email: request.body._email,
                         userId: request.body._id
                     }, 'secret',{expiresIn: "600s"});
 
                     console.log("Token: ",token);
-                    response.fname = user.fname;
-                    response.lname = user.lname;
+                    response._firstname = user._firstname;
+                    response._lastname = user._lastname;
                     response.token = token;
-                    response.email = user.email;
+                    response._email = user._email;
                     response.userId = user._id;
                     callback(null, response);
                 }
